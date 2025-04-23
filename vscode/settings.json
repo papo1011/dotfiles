@@ -1,0 +1,86 @@
+{
+    "editor.inlineSuggest.enabled": true,
+    "[python]": {
+      "editor.formatOnType": true,
+      "editor.formatOnSave": true,
+      "editor.defaultFormatter": "ms-python.python"
+    },
+    "settingsSync.ignoredExtensions": [],
+    "editor.cursorStyle": "block",
+    "editor.cursorBlinking": "blink",
+    "editor.cursorSmoothCaretAnimation": "explicit",
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+    "workbench.iconTheme": "material-icon-theme",
+    "[typescript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescriptreact]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "git.enableSmartCommit": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "[dockercompose]": {
+      "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+    },
+    "git.confirmSync": false,
+    "go.formatTool": "gofmt",
+    "editor.formatOnSave": true,
+    "git.autofetch": true,
+    "github.copilot.enable": {
+      "*": true,
+      "plaintext": true,
+      "markdown": true,
+      "scminput": false,
+      "haskell": false,
+      "mips": false
+    },
+    "[dart]": {
+      "editor.formatOnSave": true,
+      "editor.formatOnType": true,
+      "editor.rulers": [
+        80
+      ],
+      "editor.selectionHighlight": false,
+      "editor.suggestSelection": "first",
+      "editor.tabCompletion": "onlySnippets",
+      "editor.wordBasedSuggestions": "off"
+    },
+    "redhat.telemetry.enabled": true,
+    "conventionalCommits.showNewVersionNotes": false,
+    "files.watcherExclude": {
+      "**/.bloop": true,
+      "**/.metals": true,
+      "**/.ammonite": true
+    },
+    "haskell.manageHLS": "GHCup",
+    "git.mergeEditor": true,
+    "githubPullRequests.fileListLayout": "tree",
+    "explorer.confirmPasteNative": false,
+    "security.workspace.trust.untrustedFiles": "open",
+    "markdown-preview-enhanced.codeBlockTheme": "github-dark.css",
+    "markdown-preview-enhanced.revealjsTheme": "black.css",
+    "markdown-preview-enhanced.previewTheme": "github-dark.css",
+    "githubPullRequests.createOnPublishBranch": "never",
+    "C_Cpp.default.compilerPath": "/usr/bin/gcc",
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[markdown]": {
+      "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+    },
+    "terminal.integrated.enableMultiLinePasteWarning": "never",
+    "explorer.confirmDelete": false,
+    "gitlens.ai.model": "vscode",
+    "gitlens.ai.vscode.model": "copilot:gpt-4o",
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.showTabs": "multiple",
+    "workbench.editor.focusRecentEditorAfterClose": true,
+    "workbench.colorTheme": "Default Dark+",
+    "explorer.confirmDragAndDrop": false,
+    "[cpp]": {
+      "editor.defaultFormatter": "ms-vscode.cpptools"
+    },
+    "[c]": {
+      "editor.defaultFormatter": "ms-vscode.cpptools"
+    }
+  }
