@@ -115,24 +115,5 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
-# nvm command to manage npm versions
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# neovim :)
-export PATH="$PATH:/opt/nvim-linux64/bin"
-
 . "$HOME/.cargo/env"
-
-# Set Java Home and update PATH
-export JAVA_HOME=~/compilers/jdk-23.0.2
-export PATH=$JAVA_HOME/bin:$PATH
-
-# Add CUP to PATH
-export PATH="$PATH:.:/home/francesco/compilers/java_cup_v11_draw_tree/java_cup/"
-export CLASSPATH=".:/home/francesco/compilers/java_cup_v11_draw_tree/"
-# Add JFlex to PATH
-export PATH="$PATH:.:/home/francesco/compilers/jflex-1.8.2/bin"
 
