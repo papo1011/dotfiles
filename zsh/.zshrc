@@ -112,3 +112,7 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+
+# libpq
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+export LIBRARY_PATH="$LIBRARY_PATH:/opt/homebrew/opt/libpq/lib"
