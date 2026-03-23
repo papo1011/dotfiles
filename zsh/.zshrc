@@ -116,3 +116,15 @@ export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 # libpq
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export LIBRARY_PATH="$LIBRARY_PATH:/opt/homebrew/opt/libpq/lib"
+
+# Added by Antigravity
+export PATH="/Users/francescopapini/.antigravity/antigravity/bin:$PATH"
+
+# >>> juliaup initialize >>>
+
+# !! Contents within this block are managed by juliaup !!
+
+path=('/Users/francescopapini/.juliaup/bin' $path)
+export PATH
+
+# <<< juliaup initialize <<<
