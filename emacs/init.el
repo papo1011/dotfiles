@@ -18,6 +18,7 @@
 ;; Ensure use-package is present. From here on out, all packages are loaded
 ;; with use-package, a macro for importing and installing packages. Also, refresh the package archive on load so we can pull the latest packages.
 (unless (package-installed-p 'use-package)
+
   (package-refresh-contents)
   (package-install 'use-package))
 
