@@ -2,11 +2,11 @@
   "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-openagent/dev/assets/oh-my-opencode.schema.json",
   "agents": {
     "sisyphus": {
-      "model": "github-copilot/gpt-5.2",
+      "model": "moonshotai/kimi-k2.5",
       "variant": "max"
     },
     "hephaestus": {
-      "model": "github-copilot/gpt-5.4-mini",
+      "model": "github-copilot/gpt-5.3-codex",
       "variant": "medium"
     },
     "oracle": {
@@ -17,14 +17,14 @@
       "model": "github-copilot/gpt-5-mini"
     },
     "multimodal-looker": {
-      "model": "github-copilot/gpt-4o"
+      "model": "github-copilot/gpt-5-mini"
     },
     "prometheus": {
-      "model": "github-copilot/gpt-5.1",
+      "model": "github-copilot/gpt-5.2",
       "variant": "max"
     },
     "metis": {
-      "model": "github-copilot/gpt-5.1",
+      "model": "moonshot-ai/kimi-2.5",
       "variant": "max"
     },
     "momus": {
@@ -32,15 +32,15 @@
       "variant": "xhigh"
     },
     "atlas": {
-      "model": "github-copilot/gpt-4.1"
+      "model": "github-copilot/gpt-5.3-codex"
     },
     "sisyphus-junior": {
-      "model": "github-copilot/gpt-5-mini"
+      "model": "github-copilot/gemini-3-flash-preview"
     }
   },
   "categories": {
     "visual-engineering": {
-      "model": "github-copilot/gpt-4o",
+      "model": "github-copilot/gemini-3.1-pro-preview",
       "variant": "high"
     },
     "ultrabrain": {
@@ -58,7 +58,7 @@
       "model": "github-copilot/gpt-5-mini"
     },
     "unspecified-high": {
-      "model": "github-copilot/gpt-5.2"
+      "model": "github-copilot/gpt-5.3-codex"
     },
     "writing": {
       "model": "github-copilot/gemini-3-flash-preview"
