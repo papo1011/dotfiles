@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-openagent/dev/assets/oh-my-opencode.schema.json",
   "agents": {
     "sisyphus": {
-      "model": "moonshotai/kimi-k2.5",
+      "model": "openrouter/kimi-k2.5",
       "variant": "max"
     },
     "hephaestus": {
@@ -24,7 +24,7 @@
       "variant": "max"
     },
     "metis": {
-      "model": "moonshot-ai/kimi-2.5",
+      "model": "openrouter/kimi-2.5",
       "variant": "max"
     },
     "momus": {
