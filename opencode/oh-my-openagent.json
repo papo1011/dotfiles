@@ -24,7 +24,7 @@
       "variant": "max"
     },
     "metis": {
-      "model": "openrouter/kimi-2.5",
+      "model": "github-copilot/gpt-5.2",
       "variant": "max"
     },
     "momus": {
@@ -35,7 +35,7 @@
       "model": "github-copilot/gpt-5.3-codex"
     },
     "sisyphus-junior": {
-      "model": "github-copilot/gemini-3-flash-preview"
+      "model": "github-copilot/gpt-5.3-codex"
     }
   },
   "categories": {
