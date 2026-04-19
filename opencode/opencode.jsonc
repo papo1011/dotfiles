@@ -2,16 +2,6 @@
   "$schema": "https://opencode.ai/config.json",
   "model": "openai/gpt-5.4",
   "autoupdate": true,
-  // Override context limits to trigger built-in compaction at 200k tokens
-  "provider": {
-    "openai": {
-      "models": {
-        "gpt-5.4": {
-          "limit": { "context": 200000, "output": 128000 },
-        },
-      },
-    },
-  },
   "permission": {
     "webfetch": "allow",
     "doom_loop": "ask",
@@ -21,19 +11,20 @@
       "*.env.*": "deny",
       "*.dev.vars": "deny",
       "*.env.example": "allow",
+      "~/.config/opencode/get-shit-done/*": "allow"
     },
     "edit": {
-      "*": "allow",
+      "*": "allow"
     },
     "external_directory": {
       "*": "ask",
       "~/repos/**": "allow",
       "/tmp/**": "allow",
       "/private/tmp/**": "allow",
+      "~/.config/opencode/get-shit-done/*": "allow"
     },
     "bash": {
       "*": "ask",
-      // Git
       "git status *": "allow",
       "git diff *": "allow",
       "git log *": "allow",
@@ -63,7 +54,6 @@
       "find *": "allow",
       "rg *": "allow",
       "grep *": "allow",
-      // Text processing
       "sort *": "allow",
       "uniq *": "allow",
       "wc *": "allow",
@@ -77,7 +67,6 @@
       "comm *": "allow",
       "paste *": "allow",
       "column *": "allow",
-      // System info
       "which *": "allow",
       "type *": "allow",
       "file *": "allow",
@@ -118,14 +107,12 @@
       "gh search *": "allow",
       "gh status": "allow",
       "gh status *": "allow",
-      // GitHub Actions (read-only)
       "gh run list *": "allow",
       "gh run view *": "allow",
       "gh run watch *": "allow",
       "gh workflow list *": "allow",
       "gh workflow view *": "allow",
       "gh cache list *": "allow",
-      // Releases, gists, labels (read-only)
       "gh release list *": "allow",
       "gh release view *": "allow",
       "gh gist list *": "allow",
@@ -133,7 +120,6 @@
       "gh label list *": "allow",
       "gh ruleset list *": "allow",
       "gh ruleset view *": "allow",
-      // Write operations
       "gh pr create *": "allow",
       "gh pr merge *": "ask",
       "gh pr close *": "ask",
@@ -146,7 +132,6 @@
       "lsof *": "allow",
       "kill *": "ask",
       "wrangler *": "allow",
-      // Additional commands based on install.sh CLI utilities
       "jq *": "allow",
       "bat *": "allow",
       "fd *": "allow",
@@ -171,7 +156,6 @@
       "cmake *": "allow",
       "shellcheck *": "allow",
       "jj *": "allow",
-      // glab (GitLab CLI) - mirror gh patterns
       "glab mr list *": "allow",
       "glab mr view *": "allow",
       "glab mr diff *": "allow",
@@ -203,21 +187,17 @@
       "yarn *": "allow",
       "wrk *": "allow",
       "try *": "allow",
-      // Docker
       "docker *": "allow",
       "docker-compose *": "allow",
-      // macOS utilities
       "brew *": "allow",
       "open *": "allow",
       "pbcopy": "allow",
       "pbpaste": "allow",
       "source *": "allow",
-      // Ruby toolchain
       "rbenv *": "allow",
       "gem *": "allow",
       "bundle *": "allow",
-      // Shell
-      "omz *": "allow",
-    },
-  },
+      "omz *": "allow"
+    }
+  }
 }
