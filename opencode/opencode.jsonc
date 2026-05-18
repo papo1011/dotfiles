@@ -1,6 +1,7 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "model": "openai/gpt-5.4",
+  "plugin": ["superpowers@git+https://github.com/obra/superpowers.git"],
   "autoupdate": true,
   "permission": {
     "webfetch": "allow",
