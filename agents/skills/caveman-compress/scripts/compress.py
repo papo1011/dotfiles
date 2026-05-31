@@ -68,6 +68,132 @@ from .validate import validate
 
 MAX_RETRIES = 2
 
+PROTECTED_TOKEN_RE = re.compile(r"__CAVEMAN_[A-Z]+_\d+__")
+INLINE_CODE_RE = re.compile(r"`[^`]*`")
+MARKDOWN_LINK_RE = re.compile(r"\[[^\]]+\]\([^\)]+\)")
+URL_RE = re.compile(r"https?://[^\s)]+")
+REDUNDANT_PHRASES = (
+    (re.compile(r"\bin order to\b", re.IGNORECASE), "to"),
+    (re.compile(r"\bmake sure to\b", re.IGNORECASE), "ensure"),
+    (re.compile(r"\bthe reason is because\b", re.IGNORECASE), "because"),
+    (re.compile(r"\byou should\b", re.IGNORECASE), ""),
+    (re.compile(r"\bremember to\b", re.IGNORECASE), ""),
+)
+DROP_WORDS_RE = re.compile(
+    r"\b(a|an|the|just|really|basically|actually|simply|essentially|generally|"
+    r"however|furthermore|additionally)\b",
+    re.IGNORECASE,
+)
+WHITESPACE_BEFORE_PUNCT_RE = re.compile(r"\s+([,.;:!?])")
+
+
+def _protect_spans(text: str) -> tuple[str, dict[str, str]]:
+    protected: dict[str, str] = {}
+    counters = {"LINK": 0, "URL": 0, "CODE": 0}
+
+    def repl(kind: str):
+        def _inner(match: re.Match[str]) -> str:
+            token = f"__CAVEMAN_{kind}_{counters[kind]}__"
+            counters[kind] += 1
+            protected[token] = match.group(0)
+            return token
+
+        return _inner
+
+    text = MARKDOWN_LINK_RE.sub(repl("LINK"), text)
+    text = URL_RE.sub(repl("URL"), text)
+    text = INLINE_CODE_RE.sub(repl("CODE"), text)
+    return text, protected
+
+
+def _restore_spans(text: str, protected: dict[str, str]) -> str:
+    for token, value in protected.items():
+        text = text.replace(token, value)
+    return text
+
+
+def _compress_text_fragment(text: str) -> str:
+    if not text.strip():
+        return text
+
+    working, protected = _protect_spans(text)
+    for pattern, replacement in REDUNDANT_PHRASES:
+        working = pattern.sub(replacement, working)
+
+    pieces = re.split(r"(\s+)", working)
+    compact: list[str] = []
+    for piece in pieces:
+        if not piece or piece.isspace():
+            compact.append(piece)
+            continue
+        if PROTECTED_TOKEN_RE.fullmatch(piece):
+            compact.append(piece)
+            continue
+        stripped = DROP_WORDS_RE.sub("", piece)
+        stripped = stripped.strip()
+        if stripped:
+            compact.append(stripped)
+
+    working = "".join(compact)
+    working = re.sub(r"\s+", " ", working).strip()
+    working = WHITESPACE_BEFORE_PUNCT_RE.sub(r"\1", working)
+    working = re.sub(r"\bdo not\b", "don't", working, flags=re.IGNORECASE)
+    working = re.sub(r"\bdoes not\b", "doesn't", working, flags=re.IGNORECASE)
+    return _restore_spans(working, protected)
+
+
+def local_compress_markdown(text: str) -> str:
+    lines = text.splitlines()
+    compressed_lines: list[str] = []
+    in_fence = False
+    fence_char = ""
+    fence_len = 0
+
+    for line in lines:
+        fence_match = FENCE_OPEN_REGEX.match(line)
+        if fence_match:
+            current_char = fence_match.group(2)[0]
+            current_len = len(fence_match.group(2))
+            if not in_fence:
+                in_fence = True
+                fence_char = current_char
+                fence_len = current_len
+            elif current_char == fence_char and current_len >= fence_len and fence_match.group(3).strip() == "":
+                in_fence = False
+                fence_char = ""
+                fence_len = 0
+            compressed_lines.append(line)
+            continue
+
+        if in_fence or not line.strip():
+            compressed_lines.append(line)
+            continue
+
+        stripped = line.lstrip()
+        indent = line[: len(line) - len(stripped)]
+
+        if stripped.startswith("#"):
+            compressed_lines.append(line)
+            continue
+
+        marker_match = re.match(r"((?:[-*+]\s+)|(?:\d+\.\s+)|(?:>\s+))", stripped)
+        if marker_match:
+            marker = marker_match.group(1)
+            body = stripped[len(marker) :]
+            compressed_lines.append(f"{indent}{marker}{_compress_text_fragment(body)}")
+            continue
+
+        if stripped.startswith("|") and stripped.endswith("|"):
+            compressed_lines.append(line)
+            continue
+
+        compressed_lines.append(f"{indent}{_compress_text_fragment(stripped)}")
+
+    result = "\n".join(compressed_lines)
+    if text.endswith("\n"):
+        result += "\n"
+    return result
+
 
 # ---------- Claude Calls ----------
 
@@ -97,8 +223,26 @@ def call_claude(prompt: str) -> str:
             check=True,
         )
         return strip_llm_wrapper(result.stdout.strip())
+    except FileNotFoundError:
+        raise RuntimeError("Claude CLI not found")
     except subprocess.CalledProcessError as e:
         raise RuntimeError(f"Claude call failed:\n{e.stderr}")
+
+
+def compress_content(original: str) -> str:
+    try:
+        return call_claude(build_compress_prompt(original))
+    except RuntimeError as exc:
+        print(f"Claude unavailable ({exc}); using local fallback compressor")
+        return local_compress_markdown(original)
+
+
+def fix_content(original: str, compressed: str, errors: List[str]) -> str:
+    try:
+        return call_claude(build_fix_prompt(original, compressed, errors))
+    except RuntimeError as exc:
+        print(f"Claude unavailable during fix ({exc}); retrying with local fallback compressor")
+        return local_compress_markdown(original)
 
 
 def build_compress_prompt(original: str) -> str:
@@ -190,8 +334,8 @@ def compress_file(filepath: Path) -> bool:
         return False
 
     # Step 1: Compress
-    print("Compressing with Claude...")
-    compressed = call_claude(build_compress_prompt(original_text))
+    print("Compressing file...")
+    compressed = compress_content(original_text)
 
     # Save original as backup, write compressed to original path
     backup_path.write_text(original_text)
@@ -218,10 +362,8 @@ def compress_file(filepath: Path) -> bool:
             print("❌ Failed after retries — original restored")
             return False
 
-        print("Fixing with Claude...")
-        compressed = call_claude(
-            build_fix_prompt(original_text, compressed, result.errors)
-        )
+        print("Fixing compressed file...")
+        compressed = fix_content(original_text, compressed, result.errors)
         filepath.write_text(compressed)
 
     return True
