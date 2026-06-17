@@ -1,6 +1,16 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "openai/gpt-5.4",
+  "model": "openai/gpt-5.5",
+  "agent": {
+    "build": {
+      "model": "openai/gpt-5.5",
+      "variant": "high"
+    },
+    "plan": {
+      "model": "openai/gpt-5.5",
+      "variant": "high"
+    }
+  },
   "plugin": ["superpowers@git+https://github.com/obra/superpowers.git"],
   "autoupdate": true,
   "permission": {
