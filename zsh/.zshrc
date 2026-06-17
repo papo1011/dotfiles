@@ -128,3 +128,9 @@ path=('/Users/francescopapini/.juliaup/bin' $path)
 export PATH
 
 # <<< juliaup initialize <<<
+
+# Added by Antigravity IDE
+export PATH="/Users/francescopapini/.antigravity-ide/antigravity-ide/bin:$PATH"
+
+# opencode
+export PATH=/Users/francescopapini/.opencode/bin:$PATH
