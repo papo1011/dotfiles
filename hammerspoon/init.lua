@@ -3,9 +3,10 @@ local app_shortcuts = {
   {'2', 'Visual Studio Code'},
   {'3', 'Google Chrome'},
   {'4', 'Obsidian'},
-  {'5', 'Codex'},
-  {'6', 'Activity Monitor'},
-  {'7', 'System Settings'},
+  {'5', 'Antigravity IDE'},
+  {'6', 'Codex'},
+  {'7', 'Activity Monitor'},
+  {'8', 'System Settings'},
 }
 
 for _, shortcut in ipairs(app_shortcuts) do
