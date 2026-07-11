@@ -4,7 +4,7 @@ local app_shortcuts = {
   {'3', 'Google Chrome'},
   {'4', 'Obsidian'},
   {'5', 'Antigravity IDE'},
-  {'6', 'Codex'},
+  {'6', 'ChatGPT'},
   {'7', 'Activity Monitor'},
   {'8', 'System Settings'},
 }
