@@ -124,3 +124,7 @@ export NVM_DIR="$HOME/.nvm"
 
 # opencode
 export PATH=/home/papo/.opencode/bin:$PATH
+
+# linuxbrew
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
