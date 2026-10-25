@@ -128,3 +128,11 @@ export PATH=/home/papo/.opencode/bin:$PATH
 # linuxbrew
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# >>> ESP-IDF EIM PATH >>>
+# Added by ESP-IDF extension so the EIM CLI can be launched directly.
+case ":$PATH:" in
+  *:"/home/papo/.espressif/eim":*) ;;
+  *) export PATH="/home/papo/.espressif/eim:$PATH" ;;
+esac
+# <<< ESP-IDF EIM PATH <<<
