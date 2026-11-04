@@ -95,6 +95,7 @@ enabled = true
 enabled = true
 
 [tui]
+alternate_screen = "never"
 theme = "gruvbox-dark"
 pet = "rocky"
 screen_reader_detection_done = true
@@ -104,7 +105,7 @@ screen_reader_detection_done = true
 "gpt-6.1-sol" = 4
 
 [desktop]
-conversationDetailMode = "STEPS_COMMANDS"
+conversationDetailMode = "STEPS_PROSE"
 keepRemoteControlAwakeWhilePluggedIn = true
 appearanceDarkCodeThemeId = "gruvbox"
 usePointerCursors = false
