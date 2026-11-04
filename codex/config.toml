@@ -1,0 +1,171 @@
+personality = "pragmatic"
+model = "gpt-6.1-sol"
+model_reasoning_effort = "medium"
+notify = ["/Users/francescopapini/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient", "turn-ended"]
+service_tier = "default"
+sandbox_mode = "workspace-write"
+approval_policy = "on-request"
+approvals_reviewer = "auto_review"
+
+[projects."/Users/francescopapini/Desktop/github.com/papo1011/hitachi-ai-backend"]
+trust_level = "trusted"
+
+[projects."/Users/francescopapini/Desktop/github.com/papo1011/dotfiles"]
+trust_level = "trusted"
+
+[projects."/Users/francescopapini/Desktop/github.com/papo1011/leetcode"]
+trust_level = "trusted"
+
+[projects."/Users/francescopapini/Desktop/github.com/papo1011"]
+trust_level = "trusted"
+
+[projects."/Users/francescopapini/Desktop/github.com/papo1011/semeval2026"]
+trust_level = "trusted"
+
+[projects."/Users/francescopapini/Desktop/github.com/papo1011/bicad-2026-prj-bicd26_nc1_01"]
+trust_level = "trusted"
+
+[projects."/Users/francescopapini"]
+trust_level = "trusted"
+
+[projects."/Users/francescopapini/Desktop/github.com/papo1011/portfolio"]
+trust_level = "trusted"
+
+[projects."/Users/francescopapini/Desktop/github.com/papo1011/DetectLlama"]
+trust_level = "trusted"
+
+[projects."/Users/francescopapini/Downloads/ASL_DVS"]
+trust_level = "trusted"
+
+[projects."/Users/francescopapini/Documents/Codex/2026-07-15/ls"]
+trust_level = "trusted"
+
+[projects."/Users/francescopapini/Downloads/cvs"]
+trust_level = "trusted"
+
+[projects."/Users/francescopapini/Desktop/github.com/networth"]
+trust_level = "trusted"
+
+[projects."/Users/francescopapini/Documents/Codex/2026-09-02/cre"]
+trust_level = "trusted"
+
+[projects."/Users/francescopapini/Desktop/github.com/papo1011/TLS_Project"]
+trust_level = "trusted"
+
+[projects."/Users/francescopapini/Desktop/github.com/papo1011/blog"]
+trust_level = "trusted"
+
+[projects."/Users/francescopapini/Documents/ChatGPT/New project"]
+trust_level = "trusted"
+
+[projects."/Users/francescopapini/Desktop/github.com/papo1011/Deeploy"]
+trust_level = "trusted"
+
+[plugins."github@openai-curated"]
+enabled = true
+
+[plugins."documents@openai-primary-runtime"]
+enabled = true
+
+[plugins."spreadsheets@openai-primary-runtime"]
+enabled = true
+
+[plugins."presentations@openai-primary-runtime"]
+enabled = true
+
+[plugins."pdf@openai-primary-runtime"]
+enabled = true
+
+[plugins."visualize@openai-bundled"]
+enabled = true
+
+[plugins."template-creator@openai-primary-runtime"]
+enabled = true
+
+[plugins."browser@openai-bundled"]
+enabled = true
+
+[plugins."codex-app-tools@openai-bundled"]
+enabled = true
+
+[plugins."unified-computer-use@openai-bundled"]
+enabled = true
+
+[plugins."computer-use@openai-bundled"]
+enabled = true
+
+[tui]
+theme = "gruvbox-dark"
+pet = "rocky"
+screen_reader_detection_done = true
+
+[tui.model_availability_nux]
+"gpt-5.5" = 3
+"gpt-6.1-sol" = 4
+
+[desktop]
+conversationDetailMode = "STEPS_COMMANDS"
+keepRemoteControlAwakeWhilePluggedIn = true
+appearanceDarkCodeThemeId = "gruvbox"
+usePointerCursors = false
+reduced-motion-preference = "off"
+followUpQueueMode = "queue"
+dock-icon-preference = "codex-system"
+selected-avatar-id = "rocky"
+avatar-overlay-mascot-width-px = 145
+
+[desktop.appearanceDarkChromeTheme]
+accent = "#458588"
+contrast = 50
+ink = "#ebdbb2"
+opaqueWindows = true
+surface = "#282828"
+
+[desktop.appearanceDarkChromeTheme.fonts]
+code = '"Geist Mono", ui-monospace, "SFMono-Regular"'
+ui = "Geist, Inter"
+
+[desktop.appearanceDarkChromeTheme.semanticColors]
+diffAdded = "#ebdbb2"
+diffRemoved = "#cc241d"
+skill = "#b16286"
+
+[marketplaces.openai-bundled]
+source_type = "local"
+source = "/Users/francescopapini/.codex/.tmp/bundled-marketplaces/openai-bundled"
+
+[marketplaces.openai-primary-runtime]
+source_type = "local"
+source = "/Users/francescopapini/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime"
+
+[features]
+js_repl = false
+
+[mcp_servers.node_repl]
+args = []
+command = "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl"
+env_vars = ["BROWSER_USE_ACCESS_EXECUTOR_ID", "BROWSER_USE_ACCESS_PIPE_PATH", "BROWSER_USE_ACCESS_VERIFYING_IDENTITY"]
+startup_timeout_sec = 120
+
+[mcp_servers.node_repl.env]
+NODE_REPL_NATIVE_PIPE_CONNECT_TIMEOUT_MS = "1000"
+NODE_REPL_NODE_MODULE_DIRS = "/Applications/ChatGPT.app/Contents/Resources/cua_node/lib/node_modules"
+NODE_REPL_NODE_PATH = "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+NODE_REPL_TRUSTED_CODE_PATHS = "/Users/francescopapini/.codex:/Applications/ChatGPT.app/Contents/Resources/cua_node/lib/node_modules"
+CODEX_HOME = "/Users/francescopapini/.codex"
+BROWSER_USE_AVAILABLE_BACKENDS = "chrome,iab,mcpapps"
+BROWSER_USE_TINYSKY_ENABLED = "1"
+NODE_REPL_INSTRUCTIONS_USE_CASE_BROWSER = ""
+NODE_REPL_INSTRUCTIONS_USE_CASE_CHROME = ""
+NODE_REPL_INSTRUCTIONS_USE_CASE_COMPUTER_USE = ""
+BROWSER_USE_CODEX_APP_BUILD_FLAVOR = "prod"
+BROWSER_USE_CODEX_APP_VERSION = "26.1021.31345"
+NODE_REPL_TRUSTED_SERVICES = '{"browser":"/Users/francescopapini/.codex/plugins/cache/openai-bundled/browser/26.1021.31345/scripts/browser-service.mjs","sky":"@oai/sky/service"}'
+SKY_CUA_SERVICE_PATH = "/Users/francescopapini/.codex/computer-use/Codex Computer Use.app"
+CODEX_CLI_PATH = "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex"
+
+[mcp_servers.computer-use]
+command = "./Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient"
+args = ["mcp"]
+cwd = "."
+enabled = false
