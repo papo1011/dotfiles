@@ -3,7 +3,7 @@ local app_shortcuts = {
   {'2', 'Visual Studio Code'},
   {'3', 'Google Chrome'},
   {'4', 'Obsidian'},
-  {'5', 'Antigravity IDE'},
+  {'5', 'Claude'},
   {'6', 'ChatGPT'},
   {'7', 'Activity Monitor'},
   {'8', 'System Settings'},
